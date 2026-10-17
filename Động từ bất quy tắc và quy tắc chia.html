@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Động từ bất quy tắc & quy tắc chia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800;900&display=swap">
+<style>
+:root{--b1:#f3f7ff;--b2:#d9e6ff;--b3:#e8defb;--card:rgba(255,255,255,.72);--solid:#fff;--ink:#2a2d44;--mut:#646a8a;--acc:#6f56f0;--acc2:#e9e3ff;--ok:#1f9d6b;--okbg:#dcf6ea;--no:#d6456b;--nobg:#ffe3ea;--ln:rgba(111,86,240,.16);--sh:0 10px 30px rgba(90,100,170,.16);--st1:#b79cff;--st2:#ffb3dc;--st3:#9cc2ff;--ring:rgba(143,184,255,.4);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--b1:#12142b;--b2:#1b2250;--b3:#2a1f55;--card:rgba(32,36,72,.7);--solid:#262b57;--ink:#eef0ff;--mut:#a4abd0;--acc:#a592ff;--acc2:#332d6b;--ok:#5fe0ad;--okbg:#17432f;--no:#ff86a6;--nobg:#4a2234;--ln:rgba(165,146,255,.22);--sh:0 10px 30px rgba(0,0,0,.35);--st1:#6f55d8;--st2:#c25b97;--st3:#4b73c9;--ring:rgba(100,140,230,.3)}}
+:root[data-theme="dark"]{--b1:#12142b;--b2:#1b2250;--b3:#2a1f55;--card:rgba(32,36,72,.7);--solid:#262b57;--ink:#eef0ff;--mut:#a4abd0;--acc:#a592ff;--acc2:#332d6b;--ok:#5fe0ad;--okbg:#17432f;--no:#ff86a6;--nobg:#4a2234;--ln:rgba(165,146,255,.22);--sh:0 10px 30px rgba(0,0,0,.35);--st1:#6f55d8;--st2:#c25b97;--st3:#4b73c9;--ring:rgba(100,140,230,.3)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{font-family:Nunito,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--b1),var(--b2) 55%,var(--b3));position:relative;font-weight:600;line-height:1.5}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.38;mix-blend-mode:soft-light;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+.px{position:fixed;z-index:0;pointer-events:none;transition:transform .15s linear}
+.px svg{width:100%;height:auto;display:block;animation:fl 9s ease-in-out infinite}
+.px.a1{width:270px;left:-70px;top:-50px;color:var(--st1)}
+.px.a2{width:250px;right:-60px;bottom:-50px;color:var(--st2)}.px.a2 svg{animation-delay:-4s}
+.px.a3{width:80px;right:16%;top:14%;color:var(--st3)}.px.a3 svg{animation-delay:-2s}
+.px.a4{width:min(70vw,520px);aspect-ratio:1;left:22%;top:18%;border-radius:50%;border:44px solid var(--ring)}
+@keyframes fl{50%{transform:translateY(-16px) rotate(7deg)}}
+#deck{position:relative;z-index:2;display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+#deck::-webkit-scrollbar{display:none}
+.slide{min-width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;padding:70px 16px 92px;display:flex;justify-content:center;align-items:flex-start}
+.wrap{width:100%;max-width:900px;display:flex;flex-direction:column;gap:14px}
+.wrap.fill{height:100%;min-height:0}
+.wrap.mid{margin:auto 0}
+.pill{align-self:flex-start;display:inline-flex;align-items:center;gap:10px;background:var(--solid);padding:10px 20px 10px 14px;border-radius:20px;box-shadow:var(--sh);font-weight:900;font-size:clamp(22px,4.6vw,34px);letter-spacing:-.01em}
+.pill i{font-style:normal;color:var(--acc);font-size:1.1em}
+h1{font-size:clamp(32px,7vw,58px);line-height:1.08;font-weight:900;letter-spacing:-.02em}
+.lead{color:var(--mut);font-size:clamp(16px,2.6vw,19px);max-width:62ch}
+.panel{background:var(--card);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:24px;padding:16px 18px;box-shadow:var(--sh);border:1px solid var(--ln)}
+.panel h3{font-size:19px;font-weight:900;margin-bottom:4px}
+.panel p,.panel li{color:var(--mut);font-size:16px}
+.panel b{color:var(--ink)}
+ul{padding-left:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.big{font-size:26px;font-weight:900;color:var(--acc);margin:2px 0}
+.tag{display:inline-block;background:var(--acc2);color:var(--acc);border-radius:999px;padding:2px 12px;font-weight:800;font-size:14px;margin:2px 4px 2px 0}
+.btn{font:inherit;font-weight:800;border:0;cursor:pointer;background:var(--acc);color:#fff;border-radius:999px;padding:11px 24px;font-size:16px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(111,86,240,.35)}
+.btn.ghost{background:var(--solid);color:var(--acc);box-shadow:var(--sh)}
+.btn:focus-visible,.dot:focus-visible,.opt:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.tools .btn{padding:8px 16px;font-size:14px}
+.tools span{color:var(--mut);font-size:14px;font-weight:700}
+.tb{flex:1;min-height:0;overflow:auto;padding:0;position:relative}
+.r{display:grid;grid-template-columns:1fr 1fr 1fr 1.25fr;gap:8px;padding:9px 16px;border-top:1px solid var(--ln);align-items:center;font-size:16px;cursor:default}
+.r.h{position:sticky;top:0;background:var(--solid);font-weight:900;color:var(--acc);border:0;z-index:2}
+.r b:first-child{font-weight:900}
+.r em{font-style:normal;color:var(--mut);font-size:15px}
+.r:not(.h):hover{background:var(--acc2)}
+.mask .r:not(.h):not(.show) .c2,.mask .r:not(.h):not(.show) .c3{filter:blur(8px);cursor:pointer;user-select:none}
+.mask .r:not(.h){cursor:pointer}
+.rt{display:grid;gap:8px;padding:0;overflow:hidden}
+.rt .r{grid-template-columns:1.1fr 1.2fr 1.3fr;font-size:15px}
+.rt.g4 .r{grid-template-columns:1fr 1.1fr 1.2fr 1.5fr}
+#nav{position:fixed;z-index:5;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;justify-content:center;align-items:center;gap:12px;padding:0 12px}
+.nb{width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;background:var(--solid);color:var(--acc);font-size:22px;font-weight:900;box-shadow:var(--sh);transition:transform .15s}
+.nb:hover{transform:scale(1.08)}.nb:disabled{opacity:.35;cursor:default}
+#dots{display:flex;gap:6px;background:var(--solid);padding:12px 14px;border-radius:999px;box-shadow:var(--sh)}
+.dot{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:var(--ln);cursor:pointer;transition:width .3s,background .3s}
+.dot.on{width:24px;background:var(--acc)}
+#top{position:fixed;z-index:5;top:calc(env(safe-area-inset-top,0px) + 12px);left:14px;right:14px;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
+#top .pill{font-size:15px;padding:7px 14px 7px 10px;border-radius:14px;box-shadow:var(--sh)}
+#bar{position:fixed;z-index:6;left:0;top:0;height:4px;width:100%;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--st3),var(--acc),var(--st2))}
+.slide .a{opacity:0;transform:translateY(20px) scale(.98);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.8,.2,1)}
+.slide.in .a{opacity:1;transform:none;transition-delay:calc(var(--i,0)*90ms)}
+.qq{font-size:clamp(19px,3.4vw,24px);font-weight:800;line-height:1.35}
+.blank{display:inline-block;min-width:80px;border-bottom:3px solid var(--acc);text-align:center;color:var(--acc)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.opt{font:inherit;font-weight:800;font-size:18px;text-align:left;cursor:pointer;background:var(--solid);color:var(--ink);border:2px solid transparent;border-radius:16px;padding:14px 16px;box-shadow:var(--sh);transition:transform .15s,border-color .15s}
+.opt:hover:not(:disabled){transform:translateY(-2px);border-color:var(--acc)}
+.opt.ok{background:var(--okbg);border-color:var(--ok);color:var(--ok);animation:pop .35s}
+.opt.no{background:var(--nobg);border-color:var(--no);color:var(--no);animation:shk .35s}
+.opt:disabled{cursor:default}
+@keyframes pop{50%{transform:scale(1.04)}}
+@keyframes shk{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{margin-top:10px;font-weight:700;color:var(--mut);min-height:26px}
+.qh{display:flex;justify-content:space-between;align-items:center;color:var(--mut);font-weight:800;font-size:15px;margin-bottom:8px}
+.qbar{height:8px;border-radius:9px;background:var(--ln);overflow:hidden;margin-bottom:14px}
+.qbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--st3),var(--acc));transition:width .4s}
+.score{font-size:64px;font-weight:900;color:var(--acc);line-height:1}
+@media(max-width:560px){.r{padding:8px 10px;font-size:14px;gap:4px}.r em{font-size:12px}.panel{padding:14px}.px.a1{width:200px}.px.a2{width:190px}}
+@media(prefers-reduced-motion:reduce){.px svg{animation:none}.slide .a{transition:none;opacity:1;transform:none}#deck{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><symbol id="st" viewBox="0 0 100 100"><path d="M50 6C58 31 69 42 94 50 69 58 58 69 50 94 42 69 31 58 6 50 31 42 42 31 50 6Z" fill="currentColor" stroke="currentColor" stroke-width="10" stroke-linejoin="round"/></symbol></svg>
+<div class="px a4" data-k="-30"></div>
+<div class="px a1" data-k="-90"><svg><use href="#st"/></svg></div>
+<div class="px a2" data-k="-140"><svg><use href="#st"/></svg></div>
+<div class="px a3" data-k="-220"><svg><use href="#st"/></svg></div>
+<div id="bar"></div>
+<div id="top"><div class="pill"><i>✦</i>verb</div></div>
+<main id="deck">
+
+<section class="slide"><div class="wrap mid">
+<div class="pill a"><i>✦</i>Ngữ pháp</div>
+<h1 class="a">Động từ bất quy tắc và quy tắc chia</h1>
+<p class="lead a">102 động từ bất quy tắc chia theo 3 nhóm, quy tắc thêm s/es, quy tắc thêm -ing và một bài quiz ngẫu nhiên ở cuối.</p>
+<div class="a"><button class="btn" onclick="go(1)">Bắt đầu học</button> <span class="tag">Vuốt ngang hoặc dùng phím ← →</span></div>
+</div></section>
+
+<section class="slide"><div class="wrap fill">
+<div class="pill a"><i>✦</i>Nhóm 1</div>
+<p class="lead a">Cả 3 cột giống hệt nhau. Dễ nhất, chỉ cần nhớ nghĩa.</p>
+<div class="a" data-t="0" style="display:contents"></div>
+</div></section>
+
+<section class="slide"><div class="wrap fill">
+<div class="pill a"><i>✦</i>Nhóm 2</div>
+<p class="lead a">V2 và V3 giống nhau (hoặc V1 giống V3).</p>
+<div class="a" data-t="1" style="display:contents"></div>
+</div></section>
+
+<section class="slide"><div class="wrap fill">
+<div class="pill a"><i>✦</i>Nhóm 3</div>
+<p class="lead a">Cả 3 cột khác nhau hoàn toàn. Nhóm cần học kỹ nhất.</p>
+<div class="a" data-t="2" style="display:contents"></div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="pill a"><i>✦</i>Phát âm cần nhớ</div>
+<div class="cards">
+<div class="panel a"><h3>Từ read</h3><p>Viết cả 3 cột giống nhau (read, read, read) nhưng phát âm khác.</p><div class="big">V1 /riːd/</div><div class="big">V2, V3 /red/</div></div>
+<div class="panel a"><h3>Đuôi ought và aught</h3><p><b>buy</b> → bought, <b>bring</b> → brought, <b>think</b> → thought</p><p><b>catch</b> → caught, <b>teach</b> → taught</p><p style="margin-top:6px">Mẹo: chỉ catch và teach dùng a, còn lại đa số dùng o.</p></div>
+</div></div></section>
+
+<section class="slide"><div class="wrap">
+<div class="pill a"><i>✦</i>Lưu ý hay nhầm</div>
+<div class="cards">
+<div class="panel a"><h3>Anh-Anh và Anh-Mỹ</h3><p>Một số từ dùng được cả dạng bất quy tắc lẫn thêm -ed:</p><p><b>learn</b> → learnt / learned<br><b>burn</b> → burnt / burned<br><b>smell</b> → smelt / smelled</p><p style="margin-top:6px">Đi thi dùng cách nào cũng được, nhưng phải nhất quán.</p></div>
+<div class="panel a"><h3>Đừng nhầm V2 và V3</h3><p><b>V2</b>: chỉ dùng cho quá khứ đơn (hành động đã kết thúc).</p><p><b>V3</b>: dùng cho thì hoàn thành (have/has/had) hoặc câu bị động.</p><p style="margin-top:6px">I <b>ate</b> (Tôi đã ăn) khác I have <b>eaten</b> (Tôi vừa ăn xong).</p></div>
+<div class="panel a"><h3>Cặp từ dễ nhầm</h3><p><b>hang</b> – hung – hung: treo đồ vật<br><b>hang</b> – hanged – hanged: treo cổ người</p><p style="margin-top:6px"><b>lie</b> – lay – lain: nằm<br><b>lie</b> – lied – lied: nói dối</p></div>
+</div></div></section>
+
+<section class="slide"><div class="wrap">
+<div class="pill a"><i>✦</i>Thêm s/es</div>
+<p class="lead a">Dùng ở thì hiện tại đơn với chủ ngữ số ít (He, She, It, danh từ số ít). Động từ kết thúc bằng o, s, x, ch, sh, z thì thêm es.</p>
+<div class="panel rt a" data-r="se"></div>
+<div class="cards">
+<div class="panel a"><h3>Trước y là phụ âm</h3><p>Đổi y thành i rồi thêm es.</p><p><b>fly</b> → flies, <b>study</b> → studies, <b>try</b> → tries</p></div>
+<div class="panel a"><h3>Trước y là nguyên âm</h3><p>Chỉ thêm s (u, e, o, a, i đứng trước y).</p><p><b>play</b> → plays, <b>say</b> → says, <b>buy</b> → buys</p></div>
+<div class="panel a"><h3>Các trường hợp còn lại</h3><p>Chỉ thêm s: <b>work</b> → works, <b>eat</b> → eats, <b>speak</b> → speaks</p></div>
+</div></div></section>
+
+<section class="slide"><div class="wrap">
+<div class="pill a"><i>✦</i>Phát âm đuôi s/es</div>
+<div class="cards">
+<div class="panel a"><div class="big">/s/</div><p>Sau âm vô thanh /p/, /k/, /f/, /t/, /θ/</p><p><b>Mẹo: Phải Kính Phục Thầy Thích</b></p><span class="tag">stops</span><span class="tag">cooks</span><span class="tag">hats</span></div>
+<div class="panel a"><div class="big">/iz/</div><p>Sau âm /s/, /z/, /ʃ/, /tʃ/, /dʒ/, /ʒ/ (thường là từ thêm es)</p><p><b>Mẹo: các âm gió (xì, chầm, sượt)</b></p><span class="tag">boxes</span><span class="tag">kisses</span><span class="tag">watches</span></div>
+<div class="panel a"><div class="big">/z/</div><p>Tất cả các trường hợp còn lại</p><span class="tag">plays</span><span class="tag">hugs</span><span class="tag">cleans</span></div>
+</div>
+<div class="panel a"><h3>Đặc biệt: have</h3><p>Với He/She/It, have không thêm s mà đổi hoàn toàn thành <b>has</b>.</p></div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="pill a"><i>✦</i>Thêm -ing</div>
+<div class="panel rt g4 a" data-r="ing"></div>
+</div></section>
+
+<section class="slide"><div class="wrap">
+<div class="pill a"><i>✦</i>Lưu ý khi thêm -ing</div>
+<div class="cards">
+<div class="panel a"><h3>Ngoại lệ gấp đôi phụ âm</h3><p>Động từ kết thúc bằng w, x, y thì không bao giờ gấp đôi.</p><p><b>play</b> → playing, <b>fix</b> → fixing, <b>snow</b> → snowing</p></div>
+<div class="panel a"><h3>Anh-Anh và Anh-Mỹ (chữ L)</h3><p>Tiếng Anh-Anh thường gấp đôi l dù trọng âm ở đâu.</p><p><b>travel</b> → travelling (UK) / traveling (US)</p></div>
+<div class="panel a"><h3>Động từ trạng thái</h3><p>Động từ chỉ cảm xúc, sở hữu, nhận thức thường không chia dạng -ing: love, hate, like, want, know, understand, believe, belong.</p><p>Ta nói I understand, không nói I am understanding.</p></div>
+</div></div></section>
+
+<section class="slide"><div class="wrap" id="qz"></div></section>
+</main>
+
+<div id="nav"><button class="nb" id="pv" aria-label="Trang trước">‹</button><div id="dots"></div><button class="nb" id="nx" aria-label="Trang sau">›</button></div>
+
+<script>
+const P=s=>s.split(";").map(x=>x.split("|"));
+const G1=P("bet|Cá cược;burst|Nổ tung;cost|Trị giá;cut|Cắt;hit|Đụng, chạm;hurt|Làm đau;let|Cho phép;put|Đặt, để;read|Đọc;set|Thiết lập;shut|Đóng lại;split|Chia tách;spread|Lan truyền").map(p=>[p[0],p[0],p[0],p[1]]);
+const G2=P("become|became|become|Trở nên;come|came|come|Đến;run|ran|run|Chạy;bend|bent|bent|Uốn cong;bleed|bled|bled|Chảy máu;bring|brought|brought|Mang đến;build|built|built|Xây dựng;burn|burnt|burnt|Đốt cháy;buy|bought|bought|Mua;catch|caught|caught|Bắt, chụp;dig|dug|dug|Đào;dream|dreamt|dreamt|Mơ thấy;feed|fed|fed|Cho ăn;feel|felt|felt|Cảm thấy;fight|fought|fought|Chiến đấu;find|found|found|Tìm thấy;get|got|got|Có được;hang|hung|hung|Treo lên;have|had|had|Có;hear|heard|heard|Nghe;hold|held|held|Cầm, giữ;keep|kept|kept|Giữ;lay|laid|laid|Đặt, để;lead|led|led|Dẫn dắt;learn|learnt|learnt|Học;leave|left|left|Rời bỏ;lend|lent|lent|Cho vay;light|lit|lit|Thắp sáng;lose|lost|lost|Làm mất;make|made|made|Chế tạo;mean|meant|meant|Có nghĩa là;meet|met|met|Gặp gỡ;pay|paid|paid|Trả tiền;say|said|said|Nói;sell|sold|sold|Bán;send|sent|sent|Gửi;shine|shone|shone|Chiếu sáng;shoot|shot|shot|Bắn;sit|sat|sat|Ngồi;sleep|slept|slept|Ngủ;smell|smelt|smelt|Ngửi thấy;spell|spelt|spelt|Đánh vần;spend|spent|spent|Tiêu xài;spill|spilt|spilt|Làm tràn;stand|stood|stood|Đứng;stick|stuck|stuck|Dán, dính;teach|taught|taught|Dạy;tell|told|told|Kể, bảo;think|thought|thought|Suy nghĩ;understand|understood|understood|Hiểu;win|won|won|Chiến thắng");
+const G3=P("begin|began|begun|Bắt đầu;drink|drank|drunk|Uống;ring|rang|rung|Rung chuông;sing|sang|sung|Hát;sink|sank|sunk|Chìm;swim|swam|swum|Bơi;be|was/were|been|Thì, là, ở;bite|bit|bitten|Cắn;blow|blew|blown|Thổi;break|broke|broken|Làm vỡ;choose|chose|chosen|Chọn;do|did|done|Làm;draw|drew|drawn|Vẽ;drive|drove|driven|Lái xe;eat|ate|eaten|Ăn;fall|fell|fallen|Ngã, rơi;fly|flew|flown|Bay;forget|forgot|forgotten|Quên;forgive|forgave|forgiven|Tha thứ;freeze|froze|frozen|Đóng băng;give|gave|given|Cho, tặng;go|went|gone|Đi;grow|grew|grown|Lớn lên;hide|hid|hidden|Trốn, nấp;know|knew|known|Biết;lie|lay|lain|Nằm;ride|rode|ridden|Cưỡi;rise|rose|risen|Mọc lên;see|saw|seen|Nhìn thấy;shake|shook|shaken|Lắc;show|showed|shown|Cho xem;speak|spoke|spoken|Nói;steal|stole|stolen|Ăn cắp;take|took|taken|Lấy;throw|threw|thrown|Ném;wake|woke|woken|Thức giấc;wear|wore|worn|Mặc;write|wrote|written|Viết");
+const ALL=[...G1,...G2,...G3],M={};ALL.forEach(v=>M[v[0]]=v);
+const SE=[["-o","go, do","goes, does"],["-s","miss, pass","misses, passes"],["-x","fix, mix","fixes, mixes"],["-ch","watch, teach","watches, teaches"],["-sh","wash, finish","washes, finishes"],["-z","buzz, quiz","buzzes, quizzes"]];
+const ING=[["Quy tắc chung","go, read, eat","going, reading, eating","Thêm trực tiếp -ing"],["Kết thúc bằng 1 chữ e","live, write, make","living, writing, making","Bỏ e rồi thêm -ing"],["Kết thúc bằng ee","see, agree, free","seeing, agreeing, freeing","Giữ nguyên ee"],["Kết thúc bằng ie","die, lie, tie","dying, lying, tying","Đổi ie thành y"],["Kết thúc bằng c","picnic, traffic","picnicking, trafficking","Thêm k trước -ing"],["1 âm tiết: phụ âm, nguyên âm, phụ âm","run, sit, stop","running, sitting, stopping","Gấp đôi phụ âm cuối (trừ h, w, x, y)"],["2 âm tiết, trọng âm ở âm cuối","begin, prefer","beginning, preferring","Gấp đôi phụ âm cuối"],["2 âm tiết, trọng âm ở âm đầu","open, listen, visit","opening, listening, visiting","Không gấp đôi phụ âm"]];
+function tbl(l){return `<div class="tools"><button class="btn ghost" data-m>Che V2 và V3 để tự kiểm tra</button><span>${l.length} động từ. Bấm vào dòng để hiện đáp án.</span></div><div class="panel tb"><div class="r h"><b>V1</b><b>V2</b><b>V3</b><b>Nghĩa</b></div>${l.map(v=>`<div class="r"><b>${v[0]}</b><span class="c2">${v[1]}</span><span class="c3">${v[2]}</span><em>${v[3]}</em></div>`).join("")}</div>`}
+document.querySelectorAll("[data-t]").forEach(e=>{e.innerHTML=tbl([G1,G2,G3][e.dataset.t]);const tb=e.querySelector(".tb");
+e.querySelector("[data-m]").onclick=ev=>{tb.classList.toggle("mask");tb.querySelectorAll(".show").forEach(r=>r.classList.remove("show"));ev.target.textContent=tb.classList.contains("mask")?"Hiện lại tất cả":"Che V2 và V3 để tự kiểm tra"};
+tb.onclick=ev=>{const r=ev.target.closest(".r");if(r&&tb.classList.contains("mask"))r.classList.toggle("show")}});
+document.querySelector('[data-r=se]').innerHTML=`<div class="r h"><b>Đuôi</b><b>Ví dụ</b><b>Thêm es</b></div>`+SE.map(r=>`<div class="r"><b>${r[0]}</b><span>${r[1]}</span><span>${r[2]}</span></div>`).join("");
+document.querySelector('[data-r=ing]').innerHTML=`<div class="r h"><b>Quy tắc</b><b>Ví dụ</b><b>Thêm -ing</b><b>Ghi chú</b></div>`+ING.map(r=>`<div class="r"><b>${r[0]}</b><span>${r[1]}</span><span>${r[2]}</span><em>${r[3]}</em></div>`).join("");
+
+/* Điều hướng */
+const deck=document.getElementById("deck"),S=[...deck.children],dots=document.getElementById("dots"),pv=document.getElementById("pv"),nx=document.getElementById("nx"),bar=document.getElementById("bar");let cur=-1;
+S.forEach((s,i)=>{s.querySelectorAll(".a").forEach((e,j)=>e.style.setProperty("--i",j));const d=document.createElement("button");d.className="dot";d.setAttribute("aria-label","Trang "+(i+1));d.onclick=()=>go(i);dots.appendChild(d)});
+function go(i){deck.scrollTo({left:Math.max(0,Math.min(S.length-1,i))*deck.clientWidth,behavior:"smooth"})}
+function upd(){const w=deck.clientWidth,p=deck.scrollLeft/w,i=Math.round(p);bar.style.transform=`scaleX(${p/(S.length-1)})`;
+document.querySelectorAll(".px").forEach(e=>e.style.transform=`translateX(${p*e.dataset.k}px)`);
+if(i!==cur){cur=i;S.forEach((s,j)=>s.classList.toggle("in",j===i));[...dots.children].forEach((d,j)=>d.classList.toggle("on",j===i));pv.disabled=i===0;nx.disabled=i===S.length-1}}
+deck.addEventListener("scroll",upd,{passive:true});window.addEventListener("resize",()=>{deck.scrollLeft=cur*deck.clientWidth});
+pv.onclick=()=>go(cur-1);nx.onclick=()=>go(cur+1);
+addEventListener("keydown",e=>{if(e.key==="ArrowRight")go(cur+1);if(e.key==="ArrowLeft")go(cur-1)});upd();
+
+/* Quiz ngẫu nhiên */
+const X=P("p|Yesterday, I (go) ___ to the supermarket.|go|went|;p|She (write) ___ a long letter to her family last night.|write|wrote|;p|They (buy) ___ a new car two days ago.|buy|bought|;p|We (see) ___ a beautiful rainbow after the rain.|see|saw|;p|He (eat) ___ three sandwiches for breakfast.|eat|ate|;p|My father (give) ___ me a watch on my birthday.|give|gave|;p|I (know) ___ the answer to that question.|know|knew|;p|The bird (fly) ___ away when I came near.|fly|flew|;p|They (build) ___ this house in 2010.|build|built|;p|We (drink) ___ all the orange juice in the fridge.|drink|drank|;s|He (watch) ___ TV for two hours every evening.|watch|watches|đuôi -ch thêm es;s|She (study) ___ English at the center.|study|studies|phụ âm + y: đổi y thành ies;s|My cat (miss) ___ me when I’m away.|miss|misses|đuôi -s thêm es;s|The boy (play) ___ soccer every afternoon.|play|plays|nguyên âm + y: chỉ thêm s;s|She (do) ___ her homework before dinner.|do|does|đuôi -o thêm es;s|He (fix) ___ his bike by himself.|fix|fixes|đuôi -x thêm es;s|The baby (cry) ___ when he is hungry.|cry|cries|phụ âm + y: đổi y thành ies;s|She (wash) ___ her face every morning.|wash|washes|đuôi -sh thêm es;s|My brother (go) ___ to work by bus.|go|goes|đuôi -o thêm es;s|He (mix) ___ the ingredients together.|mix|mixes|đuôi -x thêm es;g|They are (run) ___ in the park.|run|running|gấp đôi n;g|I am (write) ___ a report now.|write|writing|bỏ e rồi thêm -ing;g|She is (swim) ___ in the pool.|swim|swimming|gấp đôi m;g|We are (have) ___ dinner at a restaurant.|have|having|bỏ e rồi thêm -ing;g|The man is (lie) ___ on the grass.|lie|lying|ie đổi thành ying;g|They are (stop) ___ the car at the red light.|stop|stopping|gấp đôi p;g|He is (begin) ___ his new job today.|begin|beginning|trọng âm ở âm cuối nên gấp đôi n;g|I am (travel) ___ to Da Lat this summer.|travel|travelling|Anh-Anh gấp đôi l;g|She is (sit) ___ on the chair.|sit|sitting|gấp đôi t;g|We are (make) ___ a big cake for the party.|make|making|bỏ e rồi thêm -ing");
+const SKIP="dream burn learn smell spell spill hang show light".split(" "),VQ=ALL.filter(v=>!SKIP.includes(v[0]));
+const R=a=>a[Math.random()*a.length|0],sh=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]),reg=v=>v+(/e$/.test(v)?"d":"ed");
+function mk(ans,c,pool){let s=[...new Set(c.filter(x=>x&&x!==ans))];while(s.length<3){const x=pool();if(x!==ans&&!s.includes(x))s.push(x)}return sh([ans,...s.slice(0,3)])}
+function build(){const q=[];sh(VQ).slice(0,4).forEach(v=>{const t=1+(Math.random()<.5?0:1),n=t===1?"V2 (quá khứ đơn)":"V3 (quá khứ phân từ)";q.push({h:"Động từ bất quy tắc",t:`Dạng <b>${n}</b> của <b>${v[0]}</b> (${v[3]}) là:`,a:v[t],o:mk(v[t],[v[0],v[1],v[2],reg(v[0])],()=>R(VQ)[1+(Math.random()<.5?0:1)]),n:`${v[0]} – ${v[1]} – ${v[2]}`})});
+sh(X).slice(0,6).forEach(x=>{const[ty,tx,b,a,n]=x,v=M[b];let c;if(ty==="p")c=[v[0],v[2],reg(b)];else if(ty==="s")c=[b+"s",b+"es",b.replace(/y$/,"ies"),b];else{c=[b+"ing",b.replace(/e$/,"")+"ing",b+b.slice(-1)+"ing",b.replace(/ie$/,"y")+"ing"].filter(z=>z!==a.replace("ll","l"))}
+q.push({h:{p:"Chia V2",s:"Thêm s/es",g:"Thêm -ing"}[ty],t:tx.replace("___",'<span class="blank">&nbsp;&nbsp;&nbsp;</span>'),a,o:mk(a,c,()=>b+R(["ed","er","s","ly"])),n:n||`${v[0]} – ${v[1]} – ${v[2]}`})});return sh(q)}
+const qz=document.getElementById("qz");let Q,qi,sc;
+function start(){Q=build();qi=0;sc=0;show()}
+function show(){const q=Q[qi];qz.innerHTML=`<div class="pill"><i>✦</i>Quiz ngẫu nhiên</div><div class="panel"><div class="qh"><span>${q.h}</span><span>Câu ${qi+1}/${Q.length} · Đúng ${sc}</span></div><div class="qbar"><i style="width:${qi/Q.length*100}%"></i></div><div class="qq">${q.t}</div><div class="opts">${q.o.map(o=>`<button class="opt">${o}</button>`).join("")}</div><div class="fb"></div><button class="btn" id="qn" hidden>${qi+1<Q.length?"Câu tiếp theo":"Xem kết quả"}</button></div>`;
+qz.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{qz.querySelectorAll(".opt").forEach(x=>{x.disabled=true;if(x.textContent===q.a)x.classList.add("ok")});const g=b.textContent===q.a;if(g)sc++;else b.classList.add("no");qz.querySelector(".fb").innerHTML=(g?"Chính xác! ":`Đáp án đúng là <b>${q.a}</b>. `)+q.n;const n=qz.querySelector("#qn");n.hidden=false;n.onclick=()=>{qi++;qi<Q.length?show():end()}})}
+function end(){const m=sc>=9?"Xuất sắc!":sc>=7?"Tốt lắm!":sc>=5?"Khá ổn, ôn thêm chút nữa nhé.":"Quay lại các trang trước và thử lại nhé.";
+qz.innerHTML=`<div class="pill"><i>✦</i>Kết quả</div><div class="panel"><div class="score">${sc}/${Q.length}</div><h3 style="margin-top:8px">${m}</h3><p style="margin:4px 0 14px">Mỗi lần làm lại sẽ có bộ câu hỏi mới.</p><button class="btn" id="rt">Làm bộ đề mới</button> <button class="btn ghost" id="bk">Ôn lại từ đầu</button></div>`;
+qz.querySelector("#rt").onclick=start;qz.querySelector("#bk").onclick=()=>go(1)}
+start();
+</script>
+</body>
+</html>
